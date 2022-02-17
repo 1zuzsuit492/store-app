@@ -1,6 +1,6 @@
 const express = require('express');
 const products = express.Router();
-const { getAllProducts addNewProducts, getProduct, deleteProduct, updateProduct } = require('../queries/products');
+const { getAllProducts, addNewProducts, getProduct, deleteProduct, updateProduct } = require('../queries/products');
 
 
 // here we use the function we wrote inside of our queries. 
