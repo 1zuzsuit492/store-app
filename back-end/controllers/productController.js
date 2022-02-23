@@ -11,8 +11,8 @@ const { getAllProducts, addNewProducts, getProduct, deleteProduct, updateProduct
 //ALL PRODUCTS
 products.get('/', async (request, response) => {
     console.log("GET request to /products");
-    const products = await getAllProducts();
-    response.status(200).json(products);
+    const item = await getAllProducts();
+    response.status(200).json(item);
 });
 
 //ADD ITEM
@@ -21,7 +21,7 @@ products.post('/', async (request, response) => {
     response.status(200).json(newProducts);
 })
 
-//SHOW PRODUCTS
+//SHOW ONE PRODUCT
 products.get('/:id', async (request, response) => { 
     console.log("GET request to /products/:id");
     const {id} = request.params; 

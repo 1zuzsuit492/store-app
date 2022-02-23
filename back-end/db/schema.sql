@@ -1,15 +1,15 @@
-DROP DATABASE IF EXISTS cta_dev;
-CREATE DATABASE cta_dev;
+DROP DATABASE IF EXISTS cta;
+CREATE DATABASE cta;
 
-\c cta_dev;
+\c cta;
 
-DROP TABLE IF EXISTS test;
+DROP TABLE IF EXISTS products;
 
-CREATE TABLE test (
+CREATE TABLE products (
     id SERIAL PRIMARY KEY, 
     name TEXT NOT NULL,
     description TEXT,
     price INT,
-    rating SMALLINT,
+    rating INT,
     featured BOOLEAN
 );
