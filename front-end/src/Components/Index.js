@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+
 const Index = () => {
     const API = process.env.REACT_APP_API_URL;
     const [product, setProduct] = useState([]);

@@ -1,8 +1,8 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 const New = () => {
-  // const { id } = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
   const API = process.env.REACT_APP_API_URL;
   const [product, setProduct] = useState({
@@ -18,9 +18,9 @@ const New = () => {
   } 
 
   const addProduct = (newProduct) => {
-    axios.post(`${API}/new`, newProduct)
+    axios.post(`${API}/products`, newProduct)
       .then(() => {
-        navigate("/");
+        navigate("/products");
       })
       .catch((error) => console.warn(error));
   }; //removed /new
@@ -40,8 +40,8 @@ const New = () => {
     
       <div className="description">
       <label htmlFor="description">Description</label>
-      <input id="description" value={product.description} name="description" 
-      type="text" placeholder="description" onChange={handleTextChange}/>
+      <input id="description" value={product.description} name="date" 
+      type="text" placeholder="date" onChange={handleTextChange}/>
       </div>
     
       <br />

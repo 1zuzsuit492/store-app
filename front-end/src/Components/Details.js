@@ -6,17 +6,17 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 function Details (){
     const URL = process.env.REACT_APP_API_URL;
     const [products, setProducts] = useState({});
-    const { index } = useParams();
+    const { id } = useParams();
     const navigate = useNavigate();
 
 useEffect(() => {
-//make a get request to http://localhost:3001/bookmarks/:index
-axios.get(`${URL}/${index}`)
+//make a get request to http://localhost:3001/bookmarks/:id
+axios.get(`${URL}/${id}`)
 .then((response) => setProducts(response.data));
-}, [URL, index]); 
+}, [URL, id]); 
 
 const handleDelete = () => {
-axios.delete(`${URL}/${index}`)
+axios.delete(`${URL}/${id}`)
 .then(() => navigate('/'));
 }
 
@@ -37,10 +37,10 @@ return (
         <Link to={'/'}>
           <button type="button" className="back-btn">Back</button>
         </Link> {/*redirect user to home pg */}
-        <Link to={`/${index}/edit`}>
+        <Link to={`/products/${id}/edit`}>
           <button type="button" className="edit-btn">Edit</button>
         </Link>
-        <Link to={`/${index}/edit`}>
+        <Link to={`/products/${id}/edit`}>
           <button onClick={handleDelete} type="button" className="btn btn-primary">Delete</button>
         </Link>
       </div>

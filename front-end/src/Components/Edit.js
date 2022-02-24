@@ -19,7 +19,7 @@ function Edit() {
     };
 
 useEffect(() => {
-    axios.get(`${URL}/${index}`)
+    axios.get(`${URL}/products/${index}`)
     .then((response) => {
     console.log(response.data)
     setProduct(response.data);
@@ -48,6 +48,7 @@ useEffect(() => {
 
                 <div className="name">
                     <label htmlFor="name">Name</label>
+                    <br />
                     <input id="name" value={product.name} name="name" type="text" 
                     placeholder="name" onChange={handleTextChange} />
                 </div>
@@ -56,6 +57,7 @@ useEffect(() => {
 
                 <div className="price">
                     <label htmlFor="price">price</label>
+                    <br />
                     <input type='number' id="price" name="price" value={product.price} type="text"
                     placeholder="price" onChange={handleTextChange} />
                 </div>
